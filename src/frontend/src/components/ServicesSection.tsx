@@ -9,7 +9,7 @@ const SERVICE_PILLARS = [
     title: "Sculpting",
     hindi: "संरचना",
     description:
-      "Clay Modelling / Digital Sculpting / Precision CNC Milling to bring ideas to physical reality",
+      "Clay Modelling / Class A Sculpting / CAD Design / Precision CNC Milling to bring ideas to physical reality.",
   },
   {
     title: "Prototyping",

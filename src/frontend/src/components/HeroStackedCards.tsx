@@ -43,7 +43,7 @@ const panels: StackPanel[] = [
     titleHi: "सतह",
     descriptor: "Material intelligence that breathes life into form.",
     tagline: "Material · Tactile · Resolved",
-    image: "/assets/generated/surface-craft.dim_1920x1080.jpg",
+    image: "/assets/uploads/Surface-1-3.png",
     imageAlt: "Surface — Craft",
   },
   {
@@ -54,7 +54,7 @@ const panels: StackPanel[] = [
     titleHi: "साम्य",
     descriptor: "Tectonic stance that makes heads turn.",
     tagline: "Tectonic · Composed · Commanding",
-    image: "/assets/generated/balance-stance.dim_1920x1080.jpg",
+    image: "/assets/uploads/Balance-1-2.png",
     imageAlt: "Balance — Stance",
   },
   {

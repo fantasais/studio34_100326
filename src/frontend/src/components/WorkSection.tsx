@@ -1,8 +1,8 @@
 const WORK_ITEMS = [
-  { id: 1, label: "Project 01" },
-  { id: 2, label: "Project 02" },
-  { id: 3, label: "Project 03" },
-  { id: 4, label: "Project 04" },
+  { id: 1, label: "Project 01", image: "/assets/uploads/scooter-4.png" },
+  { id: 2, label: "Project 02", image: "/assets/uploads/t1-5.png" },
+  { id: 3, label: "Project 03", image: "/assets/uploads/GTractor-1.jpg" },
+  { id: 4, label: "Project 04", image: null },
 ];
 
 export default function WorkSection() {
@@ -60,7 +60,7 @@ export default function WorkSection() {
           />
         </div>
 
-        {/* Project grid — 4 columns on desktop, 2 on tablet, 1 on mobile */}
+        {/* Project grid — 4 columns on desktop, 2 on mobile */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
           {WORK_ITEMS.map((item) => (
             <div
@@ -73,75 +73,83 @@ export default function WorkSection() {
                 border: "1px solid oklch(0.62 0.10 72 / 0.12)",
               }}
             >
-              {/* Placeholder grid lines */}
-              <svg
-                className="absolute inset-0 w-full h-full"
-                xmlns="http://www.w3.org/2000/svg"
-                preserveAspectRatio="none"
-                aria-hidden="true"
-              >
-                <line
-                  x1="0"
-                  y1="0"
-                  x2="100%"
-                  y2="100%"
-                  stroke="oklch(0.62 0.10 72 / 0.15)"
-                  strokeWidth="1"
+              {item.image ? (
+                <img
+                  src={item.image}
+                  alt={item.label}
+                  className="absolute inset-0 w-full h-full object-cover"
                 />
-                <line
-                  x1="100%"
-                  y1="0"
-                  x2="0"
-                  y2="100%"
-                  stroke="oklch(0.62 0.10 72 / 0.15)"
-                  strokeWidth="1"
-                />
-                <rect
-                  x="0"
-                  y="0"
-                  width="100%"
-                  height="100%"
-                  fill="none"
-                  stroke="oklch(0.62 0.10 72 / 0.12)"
-                  strokeWidth="1"
-                />
-              </svg>
+              ) : (
+                <>
+                  {/* Placeholder grid lines */}
+                  <svg
+                    className="absolute inset-0 w-full h-full"
+                    xmlns="http://www.w3.org/2000/svg"
+                    preserveAspectRatio="none"
+                    aria-hidden="true"
+                  >
+                    <line
+                      x1="0"
+                      y1="0"
+                      x2="100%"
+                      y2="100%"
+                      stroke="oklch(0.62 0.10 72 / 0.15)"
+                      strokeWidth="1"
+                    />
+                    <line
+                      x1="100%"
+                      y1="0"
+                      x2="0"
+                      y2="100%"
+                      stroke="oklch(0.62 0.10 72 / 0.15)"
+                      strokeWidth="1"
+                    />
+                    <rect
+                      x="0"
+                      y="0"
+                      width="100%"
+                      height="100%"
+                      fill="none"
+                      stroke="oklch(0.62 0.10 72 / 0.12)"
+                      strokeWidth="1"
+                    />
+                  </svg>
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div
+                      style={{
+                        position: "relative",
+                        width: "24px",
+                        height: "24px",
+                      }}
+                    >
+                      <div
+                        style={{
+                          position: "absolute",
+                          top: "50%",
+                          left: 0,
+                          right: 0,
+                          height: "1px",
+                          background: "oklch(0.62 0.10 72 / 0.4)",
+                          transform: "translateY(-50%)",
+                        }}
+                      />
+                      <div
+                        style={{
+                          position: "absolute",
+                          left: "50%",
+                          top: 0,
+                          bottom: 0,
+                          width: "1px",
+                          background: "oklch(0.62 0.10 72 / 0.4)",
+                          transform: "translateX(-50%)",
+                        }}
+                      />
+                    </div>
+                  </div>
+                </>
+              )}
 
-              {/* Centre crosshair */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div
-                  style={{
-                    position: "relative",
-                    width: "24px",
-                    height: "24px",
-                  }}
-                >
-                  <div
-                    style={{
-                      position: "absolute",
-                      top: "50%",
-                      left: 0,
-                      right: 0,
-                      height: "1px",
-                      background: "oklch(0.62 0.10 72 / 0.4)",
-                      transform: "translateY(-50%)",
-                    }}
-                  />
-                  <div
-                    style={{
-                      position: "absolute",
-                      left: "50%",
-                      top: 0,
-                      bottom: 0,
-                      width: "1px",
-                      background: "oklch(0.62 0.10 72 / 0.4)",
-                      transform: "translateX(-50%)",
-                    }}
-                  />
-                </div>
-              </div>
-
-              {/* Label bottom-left */}
+              {/* Label overlay */}
               <div
                 className="absolute bottom-0 left-0 right-0 px-5 py-4 flex items-end justify-between"
                 style={{
@@ -161,18 +169,20 @@ export default function WorkSection() {
                 >
                   {item.label}
                 </span>
-                <span
-                  style={{
-                    fontFamily: "Barlow, sans-serif",
-                    fontWeight: 200,
-                    letterSpacing: "0.1em",
-                    fontSize: "clamp(0.55rem, 0.9vw, 0.65rem)",
-                    color: "oklch(0.62 0.10 72 / 0.7)",
-                    textTransform: "uppercase",
-                  }}
-                >
-                  Image coming soon
-                </span>
+                {!item.image && (
+                  <span
+                    style={{
+                      fontFamily: "Barlow, sans-serif",
+                      fontWeight: 200,
+                      letterSpacing: "0.1em",
+                      fontSize: "clamp(0.55rem, 0.9vw, 0.65rem)",
+                      color: "oklch(0.62 0.10 72 / 0.7)",
+                      textTransform: "uppercase",
+                    }}
+                  >
+                    Image coming soon
+                  </span>
+                )}
               </div>
             </div>
           ))}
